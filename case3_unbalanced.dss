@@ -20,11 +20,13 @@ New linecode.4/0QUAD nphases=3 basefreq=50  ! ohms per 100ft
 !Define lines
 
 New Line.OHLine  bus1=sourcebus.1.2.3  Primary.1.2.3  linecode = 556MCM   length=1  ! 5 mile line
-New Line.Quad    Bus1=Primary.1.2.3  loadbus.1.2.3  linecode = 4/0QUAD  length=1   ! 100 ft
+New Line.OHLine2    Bus1=Primary.1.2.3  Primary2.1.2.3  linecode = 556MCM  length=1   ! 100 ft
+New Line.Quad   Bus1=Primary2.1.2.3 loadbus.1.2.3  linecode = 4/0QUAD length=1
 
+!New generator.gen1 bus1=loadbus.1.2.3 phases=3 Kv=.4 kW=60 pf=.95 status=fixed forceON=yes
 !Loads - single phase
 
-New Load.L1 phases=1  loadbus.1.0   ( 0.4 3 sqrt / )   kW=9   kvar=3  model=1
+New Load.L1 phases=1  loadbus.1.0   ( 0.4 3 sqrt / )   kW=6   kvar=3  model=1
 New Load.L2 phases=1  loadbus.2.0   ( 0.4 3 sqrt / )   kW=6   kvar=3  model=1
 New Load.L3 phases=1  loadbus.3.0   ( 0.4 3 sqrt / )   kW=6   kvar=3  model=1
 
